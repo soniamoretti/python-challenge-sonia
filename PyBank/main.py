@@ -1,6 +1,15 @@
 import pandas as pd
 import os
 import csv
+from pathlib import Path
+
+
+output_directory = Path('PyBank/Analysis')
+# Ensure the directory exists
+if not output_directory.exists():
+    output_directory.mkdir(parents=True, exist_ok=True)
+output_file_path = output_directory / 'bank_analysis.txt'
+
 
 # import the CSV file
 #budgetdata = pd.read_csv('/Users/soniamoretti/Documents/TDM-VIRT-DATA-PT-06-2024-U-LOLC-main/03-Python/Starter_Code/PyBank/Resources/budget_data.csv')
@@ -56,7 +65,7 @@ print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_incre
 print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
 
 # Export the analysis results to a text file
-with open("analysis_results.txt", "w") as file:
+with output_file_path.open('w') as file:
     file.write("Financial Analysis" + "\n")
     file.write("-------------------------" + "\n")
     file.write("Total Months: " + str(total_months) + "\n")
@@ -65,6 +74,6 @@ with open("analysis_results.txt", "w") as file:
     file.write("Greatest Increase: " + str(greatest_increase_date) + " $" + str(greatest_increase) + "\n")
     file.write("Greatest Decrease: " + str(greatest_decrease_date) + " $" + str(greatest_decrease) + "\n")
 
-print("Analysis results exported to analysis_results.txt")
+print("Analysis results exported to bank_analysis.txt")
 
 

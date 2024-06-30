@@ -7,6 +7,12 @@ from pathlib import Path
 election_csv = Path("PyPoll/Resources/election_data.csv")
 #print(election_csv.name)
 
+output_directory = Path('PyPoll/Analysis')
+# Ensure the directory exists
+if not output_directory.exists():
+    output_directory.mkdir(parents=True, exist_ok=True)
+output_file_path = output_directory / 'election_analysis.txt'
+
 
 # Initialize Variables 
 total_votes = 0
@@ -40,12 +46,28 @@ for candidate, votes in candidate_votes.items():
         winner = candidate
 
 
-
-
-# Print the total number of votes cast
+# Print results
+print("Election Results")
+print("-------------------------------------")
 print(f"Total Votes: {total_votes}")
-print(candidate_votes)
+print("-------------------------------------")
 for candidate, (votes, percentage) in candidate_votes.items():
     print(f"{candidate}: {percentage:.3f}% ({votes})")
+print("-------------------------------------")
 print(f"Winner: {winner}")
+print("-------------------------------------")
+
+
+# Export the analysis results to a text file
+with output_file_path.open('w') as file:
+    file.write("Election Results\n")
+    file.write("-------------------------\n")
+    file.write("Total Votes: " + str(total_votes) + "\n")
+    file.write("-------------------------\n")
+    for candidate, (votes, percentage) in candidate_votes.items():
+        file.write(f"{candidate}: {percentage:.3f}% ({votes})\n")
+    file.write("-------------------------\n")
+    file.write(f"Winner: {winner}\n")
+    file.write("-------------------------\n")
     
+print("Analysis results exported to election_analysis.txt")
