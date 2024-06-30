@@ -62,8 +62,8 @@ with open("analysis_results.txt", "w") as file:
     file.write("Total Months: " + str(total_months) + "\n")
     file.write("Total: $" + str(net_total) + "\n")
     file.write("Average Change: $" + str(average_change) + "\n")
-    file.write("Greatest Increase: $" + str(greatest_increase) + "\n")
-    file.write("Greatest Decrease: $" + str(greatest_decrease) + "\n")
+    file.write("Greatest Increase: " + str(greatest_increase_date) + " $" + str(greatest_increase) + "\n")
+    file.write("Greatest Decrease: " + str(greatest_decrease_date) + " $" + str(greatest_decrease) + "\n")
 
 print("Analysis results exported to analysis_results.txt")
 
