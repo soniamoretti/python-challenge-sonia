@@ -1,8 +1,6 @@
 import csv
 from pathlib import Path
 
-#data_folder = Path("PyPoll/Resources/")
-#file_to_open = data_folder / "election_data.csv"
 
 election_csv = Path("PyPoll/Resources/election_data.csv")
 #print(election_csv.name)

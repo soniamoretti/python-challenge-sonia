@@ -11,14 +11,6 @@ if not output_directory.exists():
 output_file_path = output_directory / 'bank_analysis.txt'
 
 
-# import the CSV file
-#budgetdata = pd.read_csv('/Users/soniamoretti/Documents/TDM-VIRT-DATA-PT-06-2024-U-LOLC-main/03-Python/Starter_Code/PyBank/Resources/budget_data.csv')
-#print(data.head())
-
-# Set path for file
-#csvpath = os.path.join("..", "Resources", "budget_data.csv")
-
-
 # Initialize variables
 total_months = 0
 net_total = 0
